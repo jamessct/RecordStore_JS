@@ -26,8 +26,19 @@ describe("RecordStore", function() {
     harveysHouseOfSoundtracks.sellRecord("James Bond Soundtrack");
     assert.equal(10, harveysHouseOfSoundtracks.balance)
   })
-  it("should give a financial analysis", function() {
+  it("should give total value of inventory", function() {
     var harveysHouseOfSoundtracks = new RecordStore("Harvey's House of Soundtracks", "Dunfermline");
-    assert.equal(10, harveysHouseOfSoundtracks.financialAnalysis())
+    var jamesBondSoundtrack = new Record("Various Artists", "James Bond Soundtrack", 10);
+    harveysHouseOfSoundtracks.addRecord(jamesBondSoundtrack);
+    assert.equal(10, harveysHouseOfSoundtracks.totalInventoryValue())
+  })
+  it("should give total net value", function() {
+    var harveysHouseOfSoundtracks = new RecordStore("Harvey's House of Soundtracks", "Dunfermline");
+    var jamesBondSoundtrack = new Record("Various Artists", "James Bond Soundtrack", 10);
+    var harryPotterSoundtrack = new Record("Various Artists", "Harry Potter Soundtrack", 5);
+    harveysHouseOfSoundtracks.addRecord(jamesBondSoundtrack);
+    harveysHouseOfSoundtracks.addRecord(harryPotterSoundtrack);
+    harveysHouseOfSoundtracks.sellRecord(jamesBondSoundtrack);
+    assert.equal(15, harveysHouseOfSoundtracks.totalNetValue())
   })
 })
