@@ -1,5 +1,4 @@
 var _ = require('lodash');
-var Record = require('./records');
 
 var RecordStore = function(name, city, balance) {
   this.name = name;
@@ -21,8 +20,9 @@ RecordStore.prototype = {
     }.bind(this))
   },
   listInventory: function() {
-    var listInventory = _.forEach(this.inventory, function(record) {
-      return record
+    var inventoryList = _.map(this.inventory, function(record) {
+    return record.artist
+    // ("Artist: " + record.artist + ", Title: " + record.title + ", Price: " + record.price)
     })
   },
   totalInventoryValue: function() {
@@ -38,9 +38,5 @@ RecordStore.prototype = {
     return ("Total inventory value: " + this.totalInventoryValue() + ", Balance: " + this.balance + ", Total net value: " + this.totalNetValue())
   }
 }
-
-
-var harveysHouseOfSoundtracks = new RecordStore("Harvey's House of Soundtracks", "Dunfermline");
-harveysHouseOfSoundtracks.listInventory();
 
 module.exports = RecordStore;

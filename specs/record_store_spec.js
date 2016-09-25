@@ -1,5 +1,6 @@
 var RecordStore = require('../record_store');
 var Record = require('../records');
+var RecordCollector = require('../record_collector')
 var assert = require('assert');
 
 describe("RecordStore", function() {
@@ -28,6 +29,8 @@ describe("RecordStore", function() {
   })
   it("should give an inventory list", function() {
     var harveysHouseOfSoundtracks = new RecordStore("Harvey's House of Soundtracks", "Dunfermline", 0);
+    var jamesBondSoundtrack = new Record("Various Artists", "James Bond Soundtrack", 10);
+    harveysHouseOfSoundtracks.addRecord(jamesBondSoundtrack);
     assert.equal("/// /// ", harveysHouseOfSoundtracks.listInventory())
   })
   it("should give total value of inventory", function() {
