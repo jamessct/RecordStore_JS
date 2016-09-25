@@ -30,8 +30,10 @@ describe("RecordStore", function() {
   it("should give an inventory list", function() {
     var harveysHouseOfSoundtracks = new RecordStore("Harvey's House of Soundtracks", "Dunfermline", 0);
     var jamesBondSoundtrack = new Record("Various Artists", "James Bond Soundtrack", 10);
+    var harryPotterSoundtrack = new Record("Various Artists", "Harry Potter Soundtrack", 5);
     harveysHouseOfSoundtracks.addRecord(jamesBondSoundtrack);
-    assert.equal("/// /// ", harveysHouseOfSoundtracks.listInventory())
+    harveysHouseOfSoundtracks.addRecord(harryPotterSoundtrack);
+    assert.equal("Title: James Bond Soundtrack, Artist: Various Artists, Price:10/nTitle: Harry Potter Soundtrack, Artist: Various Artists, Price:5", harveysHouseOfSoundtracks.listInventory())
   })
   it("should give total value of inventory", function() {
     var harveysHouseOfSoundtracks = new RecordStore("Harvey's House of Soundtracks", "Dunfermline", 0);

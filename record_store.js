@@ -20,10 +20,10 @@ RecordStore.prototype = {
     }.bind(this))
   },
   listInventory: function() {
-    var inventoryList = _.map(this.inventory, function(record) {
-    return record.artist
-    // ("Artist: " + record.artist + ", Title: " + record.title + ", Price: " + record.price)
+    var inventoryList = this.inventory.map(function(record) {
+      return ("Title: " + record.title + ", Artist: " + record.artist + ", Price:" + record.price);
     })
+    return inventoryList.join('/n');
   },
   totalInventoryValue: function() {
     var inventoryValue = _.map(this.inventory, function(record) {
