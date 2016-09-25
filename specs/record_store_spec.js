@@ -33,7 +33,7 @@ describe("RecordStore", function() {
     var harryPotterSoundtrack = new Record("Various Artists", "Harry Potter Soundtrack", 5);
     harveysHouseOfSoundtracks.addRecord(jamesBondSoundtrack);
     harveysHouseOfSoundtracks.addRecord(harryPotterSoundtrack);
-    assert.equal("Title: James Bond Soundtrack, Artist: Various Artists, Price:10/nTitle: Harry Potter Soundtrack, Artist: Various Artists, Price:5", harveysHouseOfSoundtracks.listInventory())
+    assert.equal("Title: James Bond Soundtrack, Artist: Various Artists, Price:10\nTitle: Harry Potter Soundtrack, Artist: Various Artists, Price:5", harveysHouseOfSoundtracks.listInventory())
   })
   it("should give total value of inventory", function() {
     var harveysHouseOfSoundtracks = new RecordStore("Harvey's House of Soundtracks", "Dunfermline", 0);

@@ -23,7 +23,7 @@ RecordStore.prototype = {
     var inventoryList = this.inventory.map(function(record) {
       return ("Title: " + record.title + ", Artist: " + record.artist + ", Price:" + record.price);
     })
-    return inventoryList.join('/n');
+    return inventoryList.join('\n');
   },
   totalInventoryValue: function() {
     var inventoryValue = _.map(this.inventory, function(record) {
